@@ -31,7 +31,7 @@ const start = (client) => {
     if (message.body === 'Imagen' || message.body === 'imagen') {
       sendImage( client, message ) 
     }
-    if (message.body === 'PDF' || message.body === 'pdf') {
+    if (message.body === 'Archivo' || message.body === 'archivo') {
       sendFile( client, message );
     }
     if (message.body === 'Contacto' || message.body === 'contacto') {
