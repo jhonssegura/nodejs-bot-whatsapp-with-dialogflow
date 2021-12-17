@@ -8,9 +8,11 @@ const {
     postSendVideo, 
     postSendLocation, 
     postSendContact, 
-    postSendContactList
+    postSendContactList,
+    postSendMessage
 } = require('../controllers/Chat');
 
+router.post('/', postSendMessage);
 router.post('/text', postSendText);
 router.post('/image', postSendImage);
 router.post('/file', postSendFile);

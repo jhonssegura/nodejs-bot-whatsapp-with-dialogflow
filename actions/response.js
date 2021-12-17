@@ -1,5 +1,5 @@
 // send text
-const sendText = async (client, to, text='Está funcionando aca.') => { 
+const sendText = async (client, to, text) => { 
     
     await client
         .sendText(to, text)

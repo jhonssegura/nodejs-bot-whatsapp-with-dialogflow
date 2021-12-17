@@ -55,6 +55,38 @@ const postReceiveMessage = async( req, res ) => {
   return res.status(200).json(req.body)
 }
 
+const postSendMessage = async( req, res ) => {
+  const arreglo = req.body
+  const generado = JSON.stringify(arreglo)
+
+  console.log("Este es el arreglo de datos", arreglo)
+
+  if (arreglo.type === 'text' || arreglo.type === 'chat') {
+    console.log("Entro a la opcion de texto")
+    postSendText(req, res)
+  }
+  else if (arreglo.type.includes('image')) {
+    console.log("Entró a la opcion de imagen")
+    postSendImage(req, res)
+  }
+  else if (arreglo.type.includes('audio')) {
+    console.log("Entró a la opcion de voice")
+    postSendVoice(req, res)
+  }
+  else if (arreglo.type.includes('video')) {
+    console.log("Entró a la opcion de video")
+    postSendVideo(req, res)
+  }
+  else if (arreglo.type.includes('document') || arreglo.type.includes('application')) {
+    console.log("Entró a la opcion de documento")
+    postSendFile(req, res)
+  }
+  return res.status(200).json({
+    status: "ok",
+    msg: "mensaje enviado"
+  })
+}
+
 // Envío para texto
 const postSendText = async( req, res ) => {
 
@@ -139,5 +171,6 @@ module.exports = {
   postSendLocation,
   postSendContact,
   postSendContactList,
+  postSendMessage,
   start
 }
