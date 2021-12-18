@@ -1,5 +1,5 @@
 // send text
-const sendText = async (client, to, text) => { 
+const sendText = async (client, to, text='Bienvenido!') => { 
     
     await client
         .sendText(to, text)
@@ -32,8 +32,8 @@ const sendDefaultVideo = async (client, from) => {
     await client
     .sendLinkPreview(
         from, 
-        'https://www.youtube.com/watch?v=K3i2P4Hf4UE&list=RDMMK3i2P4Hf4UE', 
-        'Belinda - Ángel'
+        'https://www.youtube.com/watch?v=V1bFr2SWP1I',
+        'Kamakawiwo ole'
     )
     .then((result) => {
       console.log('Result: ', result); //return object success

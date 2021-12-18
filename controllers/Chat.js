@@ -93,6 +93,10 @@ const postSendText = async( req, res ) => {
   const { to, text } = req.body;
   
   let to_correct = to+'@c.us'
+
+  console.log("Esto son los datos que se envian", to_correct, text)
+  const { firstClient } = require('../queues');
+  firstClient.add({ to, text });
   
   sendText(client_global, to_correct, text);
 }
